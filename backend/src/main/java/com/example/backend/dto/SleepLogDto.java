@@ -1,6 +1,7 @@
-package com.example.backend.domain.entities;
+package com.example.backend.dto;
 
-import jakarta.persistence.*;
+
+import com.example.backend.model.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,23 +11,13 @@ import java.time.LocalDateTime;
 
 @Builder
 @Data
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "sleep_log")
-public class SleepLogEntity {
-    @Id
-    @GeneratedValue
+public class SleepLogDto {
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
     private UserEntity user_id;
-
     private LocalDateTime sleep_start;
     private LocalDateTime wake_time;
     private Long quality_rating;
-
-    @Column(nullable = true)
     private String notes;
 }
