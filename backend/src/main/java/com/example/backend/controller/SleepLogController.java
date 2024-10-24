@@ -2,8 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.dto.GlobalApiResponse;
 import com.example.backend.dto.SleepLogDto;
-import com.example.backend.mapper.impl.SleepLogMapper;
-import com.example.backend.service.SleepLog.SleepLogService;
+import com.example.backend.service.sleeplog.SleepLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
