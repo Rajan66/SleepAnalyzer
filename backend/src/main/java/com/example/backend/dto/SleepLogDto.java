@@ -1,7 +1,7 @@
-package com.example.backend.domain.dto;
+package com.example.backend.dto;
 
 
-import com.example.backend.domain.entities.UserEntity;
+import com.example.backend.model.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
