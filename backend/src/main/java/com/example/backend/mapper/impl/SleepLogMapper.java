@@ -4,7 +4,9 @@ import com.example.backend.dto.SleepLogDto;
 import com.example.backend.mapper.Mapper;
 import com.example.backend.model.SleepLogEntity;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SleepLogMapper implements Mapper<SleepLogEntity, SleepLogDto> {
     private final ModelMapper modelMapper;
 
