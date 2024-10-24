@@ -23,13 +23,16 @@ public class SleepLogController extends BaseController {
     }
 
     @PostMapping("")
-    public ResponseEntity<GlobalApiResponse> createSleepLog(SleepLogDto sleepLogDto) {
+    public ResponseEntity<GlobalApiResponse> createSleepLog(@RequestBody SleepLogDto sleepLogDto) {
+        log.info(String.valueOf("Sleep Dto: " + sleepLogDto));
         SleepLogDto savedSleepLogDto = sleepLogService.save(sleepLogDto);
         if (savedSleepLogDto == null) {
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
                     .body(failureResponse("Sleep log creation failed", null));
         }
+
+        log.info(String.valueOf("Saved Sleep Dto: " + savedSleepLogDto));
         return ResponseEntity.ok(successResponse("Sleep log created successfully", savedSleepLogDto));
     }
 
