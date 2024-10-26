@@ -58,7 +58,6 @@ public class JwtService {
         return claims.getIssuedAt();
     }
 
-
     private Date extractExpiration(String jwtToken) {
         return extractClaim(jwtToken, Claims::getExpiration);
     }
@@ -68,15 +67,14 @@ public class JwtService {
     }
 
     public String generateToken(UserEntity u) {
-//        u.getRole().toString()
-        return createToken(u.getEmail(), "User");
+        return createToken(u.getEmail(), u.getRole().toString());
     }
 
     public String createToken(String email, String role) {
         final long validityInMilliseconds = 1000 * 60 * 60 * 60; // 10 hours validity
         return Jwts.builder()
                 .subject(email)
-//                .claim("role", role)
+                .claim("role", role)
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + validityInMilliseconds))
                 .signWith(getSigningKey())
