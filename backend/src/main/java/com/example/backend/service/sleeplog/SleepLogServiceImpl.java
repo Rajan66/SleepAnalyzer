@@ -1,4 +1,4 @@
-package com.example.backend.service.SleepLog;
+package com.example.backend.service.sleeplog;
 
 import com.example.backend.dto.SleepLogDto;
 import com.example.backend.mapper.impl.SleepLogMapper;
@@ -7,8 +7,6 @@ import com.example.backend.repository.SleepLogRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class SleepLogServiceImpl implements SleepLogService {

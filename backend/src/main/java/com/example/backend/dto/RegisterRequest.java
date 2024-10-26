@@ -1,22 +1,20 @@
 package com.example.backend.dto;
 
 import com.example.backend.enums.Role;
-import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Builder
 @Data
-@NoArgsConstructor
+@Builder
 @AllArgsConstructor
-public class UserDto {
-    private Long id;
+@NoArgsConstructor
+public class RegisterRequest {
     private String username;
-    private String email;
     private String firstname;
     private String lastname;
+    private String email;
     private String password;
     private Integer phone;
     private Role role;
