@@ -1,19 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "./components/ui/input";
-
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Error from '@/components/Error';
 
 import React from 'react'
+import Home from "./pages/home/Home";
+import Login from "./pages/auth/Login";
 
 const App = () => {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+      errorElement: <Error />,
+      // children: [
+      //   {
+      //     path: "contacts/:contactId",
+      //     element: <Contact />,
+      //   },
+      // ],
+    },
+    {
+      path: "/login",
+      element: <Login />,
+      errorElement: <Error />
+    }
+  ]);
+
+
   return (
     <div>
-      <h1 className="text-6xl text-green-300 h">hello</h1>
-      <input className="border border-gray-300 p-2" placeholder="Test Input" />
-      <button className="mt-2 bg-blue-500 text-white p-2 rounded">
-        Test Button
-      </button>
-      <Input placeholder="Test Input" />
-      <Button>Submit</Button>
+      <RouterProvider router={router} />
     </div>
   )
 }
