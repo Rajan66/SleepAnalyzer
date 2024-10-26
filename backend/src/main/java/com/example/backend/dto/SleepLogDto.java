@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class SleepLogDto {
     private Long id;
-    private UserEntity user_id;
+    private UserDto user;
     private LocalDateTime sleep_start;
     private LocalDateTime wake_time;
     private Long quality_rating;
