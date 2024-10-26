@@ -1,5 +1,6 @@
 package com.example.backend.dto;
 
+import com.example.backend.enums.Role;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,4 +15,9 @@ public class UserDto {
     private Long id;
     private String username;
     private String email;
+    private String firstname;
+    private String lastname;
+    private String password;
+    private Integer phone;
+    private Role role;
 }

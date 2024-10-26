@@ -16,26 +16,35 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity save(UserEntity userEntity) {
-        return null;
+        return userRepository.save(userEntity);
     }
 
     @Override
     public UserEntity findOne(Long id) {
-        return null;
+        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
     }
 
     @Override
     public Page<UserEntity> findAll(Pageable pageable) {
-        return null;
+        return userRepository.findAll(pageable);
     }
 
     @Override
     public boolean exists(Long id) {
-        return false;
+        return userRepository.existsById(id);
     }
 
     @Override
     public boolean delete(Long id) {
+        if (userRepository.existsById(id)) {
+            userRepository.deleteById(id);
+            return true;
+        }
         return false;
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
     }
 }
