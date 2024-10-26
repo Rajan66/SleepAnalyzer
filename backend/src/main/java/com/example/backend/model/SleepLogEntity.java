@@ -21,7 +21,7 @@ public class SleepLogEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserEntity user_id;
+    private UserEntity userId;
 
     private LocalDateTime sleep_start;
     private LocalDateTime wake_time;
