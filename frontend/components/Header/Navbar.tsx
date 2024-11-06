@@ -1,6 +1,3 @@
-"use client"
-
-import Image from "next/image";
 import logo from "@/public/assets/logo.png";
 import Link from "next/link";
 import { navItems } from "./list/navItems";
@@ -25,7 +22,7 @@ const Navbar = () => {
   return (
     <header className="flex gap-5 justify-between bg-white mx-[20px] md:mx-[40px] 2xl:mx-[80px] my-2 max-md:flex-wrap">
       <Link href={"/"} className="flex flex-col justify-center items-center ">
-        <Image
+        <img
           src={logo}
           width={200}
           height={200}

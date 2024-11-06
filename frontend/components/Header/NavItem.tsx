@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "react-router-dom";
 
 type NavItemProps = {
   name: string;
@@ -7,10 +7,10 @@ type NavItemProps = {
 };
 
 const NavItem = ({ name, href }: NavItemProps) => {
-  const pathname = usePathname();
+  const pathname = useLocation().pathname
   return (
     <Link
-      href={href}
+      to={href}
       className={cn(
         "px-[10px] py-[30px] text-nav text-black transition duration-150 opacity-80 hover:text-red-600",
         {
