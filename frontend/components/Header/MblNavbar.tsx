@@ -28,7 +28,7 @@ const MblNavbar = () => {
           src={logo}
           width={100}
           height={100}
-          alt="Dual Brake Car Hire Logo"
+          alt="SleepSheep Logo"
           className="w-[60px]"
         />
         <h1 className="text-lg font-bold">SleepSheep</h1>

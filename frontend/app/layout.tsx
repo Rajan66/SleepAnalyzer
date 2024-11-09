@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Providers from "./providers";
+import Container from "@/components/Container";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,11 +26,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // I've used suppressHydrationWarning here because the server won't know the user's theme preference.
+    // so there will be a mismatch between the server and client browser theme preferences.
+    // If you set suppressHydrationWarning to true, React will not warn you about mismatches in the attribute
+    // and the content of that element.
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Container>
+          <Providers>
+            {children}
+          </Providers>
+        </Container>
       </body>
     </html>
   );

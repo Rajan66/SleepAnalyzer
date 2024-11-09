@@ -15,12 +15,13 @@ import { CircleUser, Truck } from "lucide-react";
 // } from "@/components/ui/dropdown-menu";
 // import LogoutBtnNav from "./LogoutBtnNav";
 import Image from "next/image";
+import ThemeSwitch from "../ThemeSwitch";
 
 const Navbar = () => {
   // const { data: session } = useSession();
   // const userRole = session?.user?.role;
   return (
-    <header className="flex gap-5 justify-between bg-white mx-[20px] md:mx-[40px] 2xl:mx-[80px] my-2 max-md:flex-wrap">
+    <header className="flex gap-5 justify-between mx-[20px] md:mx-[40px] 2xl:mx-[80px] my-2 max-md:flex-wrap">
       <Link href={"/"} className="flex flex-col justify-center items-center ">
         <Image
           src={logo}
@@ -38,13 +39,16 @@ const Navbar = () => {
           ))}
         </nav>
 
+        <div className="hidden gap-[10px] mmd:flex items-center max-md:flex-wrap">
+          <ThemeSwitch />
+        </div>
 
         <>
           <Link
             href="/login"
             className="hidden mmd:flex justify-center items-center"
           >
-            <Button className="px-5 py-2.5 my-auto text-base h-[45px] font-medium text-white uppercase bg-primary border-r-0 rounded-sm hover:bg-primary/80">
+            <Button className="px-5 py-2.5 my-auto text-base h-[45px] font-medium  uppercase bg-primary border-r-0 rounded-sm hover:bg-primary/80">
               Login
             </Button>
           </Link>
@@ -52,11 +56,12 @@ const Navbar = () => {
             href="/signup"
             className="hidden mmd:flex justify-center items-center"
           >
-            <Button className="px-5 py-2.5 my-auto text-base h-[45px] font-medium text-white uppercase border-r-0 rounded-sm">
+            <Button className="px-5 py-2.5 my-auto text-base h-[45px] font-medium uppercase border-r-0 rounded-sm">
               Signup
             </Button>
           </Link>
         </>
+
         <div className="flex mmd:hidden justify-center items-center">
           <MblNavbar />
         </div>
