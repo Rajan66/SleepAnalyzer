@@ -1,5 +1,7 @@
+"use client"
 import { cn } from "@/lib/utils";
-import { Link, useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 type NavItemProps = {
   name: string;
@@ -7,10 +9,10 @@ type NavItemProps = {
 };
 
 const NavItem = ({ name, href }: NavItemProps) => {
-  const pathname = useLocation().pathname
+  const pathname = usePathname()
   return (
     <Link
-      to={href}
+      href={href}
       className={cn(
         "px-[10px] py-[30px] text-nav text-black transition duration-150 opacity-80 hover:text-red-600",
         {
