@@ -52,14 +52,6 @@ const Navbar = () => {
               Login
             </Button>
           </Link>
-          <Link
-            href="/signup"
-            className="hidden mmd:flex justify-center items-center"
-          >
-            <Button className="px-5 py-2.5 my-auto text-base h-[45px] font-medium uppercase border-r-0 rounded-sm">
-              Signup
-            </Button>
-          </Link>
         </>
 
         <div className="flex mmd:hidden justify-center items-center">

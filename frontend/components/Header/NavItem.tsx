@@ -22,7 +22,7 @@ const NavItem = ({ name, href }: NavItemProps) => {
     >
       <div className="flex flex-col">
         {name}
-        <span className={cn("hidden", { "block border-t-2 border-gray-400": pathname === href })}></span>
+        <span className={cn("hidden", { "block": pathname === href })}></span>
       </div>
     </Link >
   );
