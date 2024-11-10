@@ -1,0 +1,65 @@
+import logo from "@/public/assets/logo.png";
+import Link from "next/link";
+import { navItems } from "./list/navItems";
+import NavItem from "./NavItem";
+import { Button } from "@/components/ui/button";
+import MblNavbar from "./MblNavbar";
+import { useSession } from "next-auth/react";
+import { CircleUser, Truck } from "lucide-react";
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuGroup,
+//   DropdownMenuItem,
+//   DropdownMenuTrigger
+// } from "@/components/ui/dropdown-menu";
+// import LogoutBtnNav from "./LogoutBtnNav";
+import Image from "next/image";
+import ThemeSwitch from "../ThemeSwitch";
+
+const Navbar = () => {
+  // const { data: session } = useSession();
+  // const userRole = session?.user?.role;
+  return (
+    <header className="flex gap-5 justify-between mx-[20px] md:mx-[40px] 2xl:mx-[80px] my-2 max-md:flex-wrap">
+      <Link href={"/"} className="flex flex-col justify-center items-center ">
+        <Image
+          src={logo}
+          width={200}
+          height={200}
+          alt="BiteBuddy Logo"
+          className="my-auto max-w-full w-[60px]"
+        />
+        <h1 className="text-lg font-bold">SleepSheep</h1>
+      </Link>
+      <div className="flex gap-10">
+        <nav className="hidden gap-[10px] mmd:flex items-center max-md:flex-wrap">
+          {navItems.map((link, index) => (
+            <NavItem key={index} href={link.href} name={link.name} />
+          ))}
+        </nav>
+
+        <div className="hidden gap-[10px] mmd:flex items-center max-md:flex-wrap">
+          <ThemeSwitch />
+        </div>
+
+        <>
+          <Link
+            href="/login"
+            className="hidden mmd:flex justify-center items-center"
+          >
+            <Button className="px-5 py-2.5 my-auto text-base h-[45px] font-medium  uppercase bg-primary border-r-0 rounded-sm hover:bg-primary/80">
+              Login
+            </Button>
+          </Link>
+        </>
+
+        <div className="flex mmd:hidden justify-center items-center">
+          <MblNavbar />
+        </div>
+      </div>
+    </header >
+  );
+};
+
+export default Navbar;
